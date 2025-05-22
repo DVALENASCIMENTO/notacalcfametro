@@ -1,0 +1,291 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4ff;
+  color: #1a237e; /* Azul escuro */
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgb(26 35 126 / 0.2);
+}
+
+/* Logo */
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-fametro {
+  max-width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgb(26 35 126 / 0.3);
+}
+
+/* Título */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1a237e;
+  text-shadow: 1px 1px 3px rgba(26, 35, 126, 0.3);
+}
+
+/* Dados do aluno */
+.dados-aluno {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.dados-aluno label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #3949ab;
+}
+
+.dados-aluno input[type="text"] {
+  width: 250px;
+  padding: 10px 15px;
+  border: 2px solid #3949ab;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.dados-aluno input[type="text"]:focus {
+  border-color: #1a237e;
+  outline: none;
+  box-shadow: 0 0 8px #1a237e88;
+}
+
+/* Semestre */
+.semestre {
+  background-color: #e8eaf6;
+  border-radius: 10px;
+  padding: 25px 20px;
+  box-shadow: inset 0 0 8px #3949ab33;
+  margin-bottom: 40px;
+  border: 1px solid #3949ab;
+}
+
+.semestre h2 {
+  color: #1a237e;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+/* Input período semestre */
+.input-periodo {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1.8px solid #3949ab;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 160px;
+  margin-bottom: 18px;
+  transition: border-color 0.3s ease;
+}
+
+.input-periodo:focus {
+  border-color: #1a237e;
+  outline: none;
+  box-shadow: 0 0 6px #1a237eaa;
+}
+
+/* Tabela */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 15px rgb(26 35 126 / 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabela thead {
+  background-color: #3949ab;
+  color: #ffffff;
+}
+
+.tabela th, .tabela td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #d1d9ff;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.tabela tbody tr:nth-child(even) {
+  background-color: #f2f5ff;
+}
+
+/* Inputs da tabela */
+.tabela input[type="text"],
+.tabela input[type="number"] {
+  width: 80px;
+  padding: 6px 8px;
+  border: 1.5px solid #3949ab;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.tabela input[type="text"]:focus,
+.tabela input[type="number"]:focus {
+  border-color: #1a237e;
+  outline: none;
+  box-shadow: 0 0 5px #1a237e99;
+}
+
+.tabela input[type="text"] {
+  width: auto;
+  min-width: 80px; /* largura mínima para ficar legível */
+  max-width: 300px; /* largura máxima para evitar estourar */
+  padding: 6px 8px;
+  border: 1.5px solid #3949ab;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: left;
+  transition: width 0.2s ease;
+}
+
+
+/* Statuses cores */
+.status, .status-final {
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: #fff;
+  user-select: none;
+  font-size: 0.85rem;
+}
+
+.status-aprovado {
+  background-color: #43a047; /* verde */
+}
+
+.status-exame {
+  background-color: #fbc02d; /* amarelo */
+  color: #000;
+}
+
+.status-reprovado {
+  background-color: #e53935; /* vermelho */
+}
+
+/* Botões */
+.botoes-topo {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+button {
+  background-color: #3949ab;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgb(57 73 171 / 0.5);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #1a237e;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Footer */
+footer {
+  background-color: #1a237e;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+  box-shadow: inset 0 3px 10px #00000044;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #c5cae9;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .dados-aluno {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dados-aluno input[type="text"] {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .botoes-topo {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  button {
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .tabela input[type="text"],
+  .tabela input[type="number"] {
+    width: 60px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .semestre h2 {
+    font-size: 1.4rem;
+  }
+
+  .tabela th, .tabela td {
+    padding: 8px 5px;
+    font-size: 0.75rem;
+  }
+}

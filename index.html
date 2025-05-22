@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nota Calc - Calculadora de Notas Fametro</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  <main>
+    <header class="logo-container">
+      <img src="img/fametro.jpeg" alt="Logomarca da Fametro" class="logo-fametro" />
+    </header>
+
+    <h1>Calculadora de Notas Fametro</h1>
+
+    <div class="dados-aluno">
+      <label for="nomeAluno">Nome:</label>
+      <input type="text" id="nomeAluno" placeholder="Digite seu nome" />
+      <label for="matriculaAluno">Matrícula:</label>
+      <input type="text" id="matriculaAluno" placeholder="Digite sua matrícula" />
+      <label for="curso">Curso:</label>
+      <input type="text" id="curso" placeholder="Digite o nome do seu curso" />
+    </div>
+
+    <div id="semestres"></div>
+
+    <div class="botoes-topo">
+      <button onclick="adicionarSemestre()">Adicionar Semestre</button>
+      <button onclick="salvarDados()">Salvar</button>
+      <button onclick="backupIndexedDB()">Backup</button>
+      <button onclick="exportarPDF()">Exportar</button>
+    </div>
+  </main>
+
+  <footer>
+    Diego Nascimento - Tecnólogo em Análise e Desenvolvimento de Sistemas<br />
+    <a href="https://github.com/">GitHub</a> |
+    <a href="https://linkedin.com/">LinkedIn</a>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

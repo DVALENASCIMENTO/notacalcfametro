@@ -18,11 +18,11 @@
 
     <div class="dados-aluno">
       <label for="nomeAluno">Nome:</label>
-      <input type="text" id="nomeAluno" placeholder="Digite seu nome" />
+      <input type="text" id="nomeAluno" placeholder="Digite seu nome" oninput="salvarLocalStorage()" />
       <label for="matriculaAluno">Matrícula:</label>
-      <input type="text" id="matriculaAluno" placeholder="Digite sua matrícula" />
+      <input type="text" id="matriculaAluno" placeholder="Digite sua matrícula" oninput="salvarLocalStorage()" />
       <label for="curso">Curso:</label>
-      <input type="text" id="curso" placeholder="Digite o nome do seu curso" />
+      <input type="text" id="curso" placeholder="Digite o nome do seu curso" oninput="salvarLocalStorage()" />
     </div>
 
     <div id="semestres"></div>
@@ -30,8 +30,10 @@
     <div class="botoes-topo">
       <button onclick="adicionarSemestre()">Adicionar Semestre</button>
       <button onclick="salvarDados()">Salvar</button>
-      <button onclick="backupIndexedDB()">Backup</button>
-      <button onclick="exportarPDF()">Exportar</button>
+      <button onclick="backupIndexedDB()">Exportar Backup</button>
+      <button onclick="importarBackup()">Importar Backup</button>
+      <button onclick="exportarPDF()">Exportar PDF</button>
+      <input type="file" id="importarBackupInput" style="display: none" accept=".json" />
     </div>
   </main>
 

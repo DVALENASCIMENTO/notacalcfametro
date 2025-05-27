@@ -126,11 +126,13 @@ function calcular(input) {
 function salvarLocalStorage() {
   localStorage.setItem("nomeAluno", document.getElementById("nomeAluno").value);
   localStorage.setItem("matriculaAluno", document.getElementById("matriculaAluno").value);
+  localStorage.setItem("curso", document.getElementById("curso").value);
 }
 
 function carregarDadosAluno() {
   document.getElementById("nomeAluno").value = localStorage.getItem("nomeAluno") || "";
   document.getElementById("matriculaAluno").value = localStorage.getItem("matriculaAluno") || "";
+  document.getElementById("curso").value = localStorage.getItem("curso") || "";
 }
 
 // ---------------------------
@@ -175,7 +177,7 @@ function salvarDados() {
 }
 
 // ---------------------------
-// Backup do IndexedDB
+// Exportar Backup do IndexedDB
 // ---------------------------
 function backupIndexedDB() {
   const dbRequest = indexedDB.open("NotasDB", 1);
@@ -226,9 +228,9 @@ function exportarPDF() {
     doc.text(`Aluno: ${nome}`, 14, y);
     y += 10;
     doc.text(`Matrícula: ${matricula}`, 14, y);
-    y += 6;
+    y += 10;
     doc.text(`Curso: ${curso}`, 14, y);
-    y += 6;
+    y += 10;
 
 
     document.querySelectorAll(".semestre").forEach((sem, index) => {
@@ -280,3 +282,54 @@ function exportarPDF() {
 window.onload = function () {
   carregarDadosAluno();
 };
+
+// ---------------------------
+// Importar Backup
+// ---------------------------
+
+function importarBackup() {
+  const input = document.getElementById("importarBackupInput");
+  input.click();
+
+  input.onchange = function () {
+    const file = input.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        restaurarSemestres(data);
+        alert("Backup importado com sucesso!");
+      } catch (error) {
+        alert("Erro ao importar o backup. Verifique o arquivo.");
+      }
+    };
+    reader.readAsText(file);
+  };
+}
+
+function restaurarSemestres(dados) {
+  document.getElementById("semestres").innerHTML = "";
+  contadorSemestres = 0;
+
+  dados.forEach((semestre) => {
+    adicionarSemestre();
+    const div = document.querySelectorAll(".semestre")[contadorSemestres - 1];
+    div.querySelector(".input-periodo").value = semestre.periodo;
+
+    semestre.materias.forEach((materia) => {
+      adicionarMateria(div.querySelector("button"));
+      const linha = div.querySelector("tbody").lastElementChild;
+      const inputs = linha.querySelectorAll("input");
+
+      inputs[0].value = materia.nome;
+      inputs[1].value = materia.av1;
+      inputs[2].value = materia.av2;
+      inputs[3].value = materia.av3;
+      inputs[4].value = materia.exame;
+
+      inputs.forEach((input) => calcular(input)); // Recalcula todos os valores
+    });
+  });
+}
